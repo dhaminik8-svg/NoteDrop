@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+notedrop.db
+.env
+.pytest_cache/

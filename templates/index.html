@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NoteDrop — Leave a little note</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <nav class="nav">
+            <a class="brand" href="/">✳ NoteDrop</a>
+            <span class="nav-note">a little space for temporary thoughts</span>
+        </nav>
+
+        <section class="hero">
+            <p class="eyebrow">WRITE IT. SHARE IT. LET IT GO.</p>
+            <h1>Some things aren't<br>meant to stay <em>forever.</em></h1>
+            <p class="subtitle">
+                A quiet little corner for notes, snippets and thoughts
+                that disappear when their time is up.
+            </p>
+        </section>
+
+        <section class="paper">
+            <div class="paper-heading">
+                <div>
+                    <span class="eyebrow">YOUR NOTEBOOK</span>
+                    <h2>Leave a little note</h2>
+                </div>
+                <span class="paper-icon">✎</span>
+            </div>
+
+            <form action="/create" method="POST">
+                <label for="content">What's on your mind?</label>
+                <textarea id="content" name="content"
+                    maxlength="10000" required
+                    placeholder="Paste a snippet, jot down a thought..."></textarea>
+
+                <div class="settings">
+                    <div>
+                        <label for="ttl">Self-destruct after</label>
+                        <select id="ttl" name="ttl">
+                            <option value="5">5 minutes</option>
+                            <option value="60" selected>1 hour</option>
+                            <option value="1440">24 hours</option>
+                            <option value="10080">7 days</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="max_views">Maximum views</label>
+                        <select id="max_views" name="max_views">
+                            <option value="1">1 view</option>
+                            <option value="5" selected>5 views</option>
+                            <option value="10">10 views</option>
+                            <option value="25">25 views</option>
+                            <option value="100">100 views</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit">Create my note <span>↗</span></button>
+            </form>
+            <p class="privacy">No account needed. Don't store real passwords or secrets here.</p>
+        </section>
+
+        <footer>Made for the things that don't need to last. <span>✳</span></footer>
+    </main>
+</body>
+</html>
