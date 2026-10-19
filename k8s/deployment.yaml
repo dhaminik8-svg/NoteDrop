@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notedrop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notedrop
+  template:
+    metadata:
+      labels:
+        app: notedrop
+    spec:
+      containers:
+        - name: notedrop
+          image: notedrop:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
